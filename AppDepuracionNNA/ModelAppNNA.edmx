@@ -1,0 +1,515 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="EncargoFiduciarioNNAModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="DiviPola">
+          <Key>
+            <PropertyRef Name="codigo_departamento_municipio" />
+          </Key>
+          <Property Name="codigo_departamento_municipio" Type="bigint" Nullable="false" />
+          <Property Name="codigo_departamento" Type="smallint" />
+          <Property Name="codigo_municipio" Type="smallint" />
+          <Property Name="nombre_departamento" Type="varchar" MaxLength="50" />
+          <Property Name="nombre_municipio" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="EncargoFiduciario">
+          <Key>
+            <PropertyRef Name="Id1" />
+          </Key>
+          <Property Name="Id1" Type="int" Nullable="false" />
+          <Property Name="id" Type="nvarchar" MaxLength="255" />
+          <Property Name="registro_uniqueidentifier" Type="nvarchar" MaxLength="255" />
+          <Property Name="anio" Type="nvarchar" MaxLength="255" />
+          <Property Name="rad" Type="nvarchar" MaxLength="255" />
+          <Property Name="proceso" Type="nvarchar" MaxLength="255" />
+          <Property Name="id_persona" Type="nvarchar" MaxLength="255" />
+          <Property Name="Primer_nombre_victima" Type="nvarchar" MaxLength="255" />
+          <Property Name="Segundo_nombre_victima" Type="nvarchar" MaxLength="255" />
+          <Property Name="primer_apellido_victima" Type="nvarchar" MaxLength="255" />
+          <Property Name="Segundo_apellido_victima" Type="nvarchar" MaxLength="255" />
+          <Property Name="genero_victima" Type="nvarchar" MaxLength="255" />
+          <Property Name="tipo_documento_victima" Type="nvarchar" MaxLength="255" />
+          <Property Name="no_documento_victima" Type="nvarchar" MaxLength="255" />
+          <Property Name="fecha_nacimiento_victima" Type="nvarchar" MaxLength="255" />
+          <Property Name="hecho_victimi" Type="nvarchar" MaxLength="255" />
+          <Property Name="hecho_victimi_depto_nombre" Type="nvarchar" MaxLength="255" />
+          <Property Name="hecho_victimi_muni_nombre" Type="nvarchar" MaxLength="255" />
+          <Property Name="hecho_victimi_fecha" Type="nvarchar" MaxLength="255" />
+          <Property Name="id_persona2" Type="nvarchar" MaxLength="255" />
+          <Property Name="Primer_nombre_destinatario" Type="nvarchar" MaxLength="255" />
+          <Property Name="Segundo_nombre_destinatario" Type="nvarchar" MaxLength="255" />
+          <Property Name="primer_apellido_destinatario" Type="nvarchar" MaxLength="255" />
+          <Property Name="Segundo_apellido_destinatario" Type="nvarchar" MaxLength="255" />
+          <Property Name="genero_destinatario" Type="nvarchar" MaxLength="255" />
+          <Property Name="tipo_documento_destinatario" Type="nvarchar" MaxLength="255" />
+          <Property Name="NO_DOCUMENTO_DESTINATARIO" Type="nvarchar" MaxLength="255" />
+          <Property Name="fecha_nacimiento_destinatario" Type="nvarchar" MaxLength="255" />
+          <Property Name="parentesco_destinatario" Type="nvarchar" MaxLength="255" />
+          <Property Name="nombre_departamento" Type="nvarchar" MaxLength="255" />
+          <Property Name="nombre_municipio" Type="nvarchar" MaxLength="255" />
+          <Property Name="direccion" Type="nvarchar" MaxLength="255" />
+          <Property Name="Telefono_correspondencia" Type="nvarchar" MaxLength="255" />
+          <Property Name="fecha_declaracion" Type="nvarchar" MaxLength="255" />
+          <Property Name="porcentaje_recalculado" Type="nvarchar" MaxLength="255" />
+          <Property Name="LIQUIDACION DEFINITIVA" Type="nvarchar" MaxLength="255" />
+          <Property Name="No de Resolución" Type="nvarchar" MaxLength="255" />
+          <Property Name="CONTARATO" Type="nvarchar" MaxLength="255" />
+          <Property Name="no_resolucion" Type="nvarchar" MaxLength="255" />
+          <Property Name="fecha_resolucion" Type="nvarchar" MaxLength="255" />
+        </EntityType>
+        <EntityType Name="EncargoFiduciarioDep">
+          <Key>
+            <PropertyRef Name="registro_uniqueidentifier" />
+          </Key>
+          <Property Name="id" Type="int" Nullable="false" />
+          <Property Name="registro_uniqueidentifier" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="anio" Type="nvarchar" MaxLength="255" />
+          <Property Name="rad" Type="nvarchar" MaxLength="255" />
+          <Property Name="proceso" Type="nvarchar" MaxLength="255" />
+          <Property Name="id_persona_victima" Type="bigint" />
+          <Property Name="Primer_nombre_victima" Type="nvarchar" MaxLength="255" />
+          <Property Name="Segundo_nombre_victima" Type="nvarchar" MaxLength="255" />
+          <Property Name="primer_apellido_victima" Type="nvarchar" MaxLength="255" />
+          <Property Name="Segundo_apellido_victima" Type="nvarchar" MaxLength="255" />
+          <Property Name="genero_victima" Type="nvarchar" MaxLength="255" />
+          <Property Name="tipo_documento_victima" Type="nvarchar" MaxLength="255" />
+          <Property Name="no_documento_victima" Type="bigint" />
+          <Property Name="fecha_nacimiento_victima" Type="date" />
+          <Property Name="hecho_victimi" Type="nvarchar" MaxLength="255" />
+          <Property Name="hecho_victimi_fecha" Type="date" />
+          <Property Name="id_persona_destinatario" Type="bigint" />
+          <Property Name="Primer_nombre_destinatario" Type="nvarchar" MaxLength="255" />
+          <Property Name="Segundo_nombre_destinatario" Type="nvarchar" MaxLength="255" />
+          <Property Name="primer_apellido_destinatario" Type="nvarchar" MaxLength="255" />
+          <Property Name="Segundo_apellido_destinatario" Type="nvarchar" MaxLength="255" />
+          <Property Name="genero_destinatario" Type="nvarchar" MaxLength="255" />
+          <Property Name="tipo_documento_destinatario" Type="nvarchar" MaxLength="255" />
+          <Property Name="NO_DOCUMENTO_DESTINATARIO" Type="bigint" />
+          <Property Name="fecha_nacimiento_destinatario" Type="date" />
+          <Property Name="parentesco_destinatario" Type="nvarchar" MaxLength="255" />
+          <Property Name="direccion" Type="nvarchar" MaxLength="255" />
+          <Property Name="Telefono_correspondencia" Type="nvarchar" MaxLength="255" />
+          <Property Name="fecha_declaracion" Type="date" />
+          <Property Name="porcentaje_recalculado" Type="float" />
+          <Property Name="valor_total_pagar_indemnizacion" Type="money" />
+          <Property Name="CONTARATO" Type="nvarchar" MaxLength="255" />
+          <Property Name="no_resolucion" Type="nvarchar" MaxLength="255" />
+          <Property Name="fecha_resolucion" Type="date" />
+          <Property Name="estadoPago" Type="nvarchar" MaxLength="255" />
+          <Property Name="hecho_victimi_muni_Codigo" Type="bigint" Nullable="false" />
+          <Property Name="codigo_muni_Correspondencia_destinatario" Type="bigint" Nullable="false" />
+        </EntityType>
+        <EntityType Name="sysdiagrams">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="principal_id" Type="int" Nullable="false" />
+          <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="version" Type="int" />
+          <Property Name="definition" Type="varbinary(max)" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'EncargoFiduciarioNNA.dbo.vw_consultaHistoricoNNAS' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="vw_consultaHistoricoNNAS">
+          <Key>
+            <PropertyRef Name="IdRegistro" />
+            <PropertyRef Name="Radicado" />
+            <PropertyRef Name="Proceso" />
+            <PropertyRef Name="NombreVictima" />
+            <PropertyRef Name="DocumentoVictima" />
+            <PropertyRef Name="HechoVictimizante" />
+            <PropertyRef Name="NombreDestinatario" />
+            <PropertyRef Name="DocumentoDestinatario" />
+          </Key>
+          <Property Name="IdRegistro" Type="int" Nullable="false" />
+          <Property Name="Radicado" Type="nvarchar" MaxLength="255" Nullable="false" />
+          <Property Name="Proceso" Type="nvarchar" MaxLength="255" Nullable="false" />
+          <Property Name="NombreVictima" Type="nvarchar" MaxLength="1023" Nullable="false" />
+          <Property Name="DocumentoVictima" Type="nvarchar" MaxLength="255" Nullable="false" />
+          <Property Name="HechoVictimizante" Type="nvarchar" MaxLength="255" Nullable="false" />
+          <Property Name="NombreDestinatario" Type="nvarchar" MaxLength="1023" Nullable="false" />
+          <Property Name="DocumentoDestinatario" Type="nvarchar" MaxLength="255" Nullable="false" />
+        </EntityType>
+        <Association Name="FK_EncargoFiduciarioDep_DiviPola">
+          <End Role="DiviPola" Type="Self.DiviPola" Multiplicity="1" />
+          <End Role="EncargoFiduciarioDep" Type="Self.EncargoFiduciarioDep" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="DiviPola">
+              <PropertyRef Name="codigo_departamento_municipio" />
+            </Principal>
+            <Dependent Role="EncargoFiduciarioDep">
+              <PropertyRef Name="hecho_victimi_muni_Codigo" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_EncargoFiduciarioDep_DiviPola1">
+          <End Role="DiviPola" Type="Self.DiviPola" Multiplicity="1" />
+          <End Role="EncargoFiduciarioDep" Type="Self.EncargoFiduciarioDep" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="DiviPola">
+              <PropertyRef Name="codigo_departamento_municipio" />
+            </Principal>
+            <Dependent Role="EncargoFiduciarioDep">
+              <PropertyRef Name="codigo_muni_Correspondencia_destinatario" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="EncargoFiduciarioNNAModelStoreContainer">
+          <EntitySet Name="DiviPola" EntityType="Self.DiviPola" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="EncargoFiduciario" EntityType="Self.EncargoFiduciario" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="EncargoFiduciarioDep" EntityType="Self.EncargoFiduciarioDep" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="vw_consultaHistoricoNNAS" EntityType="Self.vw_consultaHistoricoNNAS" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [vw_consultaHistoricoNNAS].[IdRegistro] AS [IdRegistro], 
+    [vw_consultaHistoricoNNAS].[Radicado] AS [Radicado], 
+    [vw_consultaHistoricoNNAS].[Proceso] AS [Proceso], 
+    [vw_consultaHistoricoNNAS].[NombreVictima] AS [NombreVictima], 
+    [vw_consultaHistoricoNNAS].[DocumentoVictima] AS [DocumentoVictima], 
+    [vw_consultaHistoricoNNAS].[HechoVictimizante] AS [HechoVictimizante], 
+    [vw_consultaHistoricoNNAS].[NombreDestinatario] AS [NombreDestinatario], 
+    [vw_consultaHistoricoNNAS].[DocumentoDestinatario] AS [DocumentoDestinatario]
+    FROM [dbo].[vw_consultaHistoricoNNAS] AS [vw_consultaHistoricoNNAS]</DefiningQuery>
+          </EntitySet>
+          <AssociationSet Name="FK_EncargoFiduciarioDep_DiviPola" Association="Self.FK_EncargoFiduciarioDep_DiviPola">
+            <End Role="DiviPola" EntitySet="DiviPola" />
+            <End Role="EncargoFiduciarioDep" EntitySet="EncargoFiduciarioDep" />
+          </AssociationSet>
+          <AssociationSet Name="FK_EncargoFiduciarioDep_DiviPola1" Association="Self.FK_EncargoFiduciarioDep_DiviPola1">
+            <End Role="DiviPola" EntitySet="DiviPola" />
+            <End Role="EncargoFiduciarioDep" EntitySet="EncargoFiduciarioDep" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="EncargoFiduciarioNNAModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="DiviPola">
+          <Key>
+            <PropertyRef Name="codigo_departamento_municipio" />
+          </Key>
+          <Property Name="codigo_departamento_municipio" Type="Int64" Nullable="false" />
+          <Property Name="codigo_departamento" Type="Int16" />
+          <Property Name="codigo_municipio" Type="Int16" />
+          <Property Name="nombre_departamento" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="nombre_municipio" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="EncargoFiduciarioDep" Relationship="Self.FK_EncargoFiduciarioDep_DiviPola" FromRole="DiviPola" ToRole="EncargoFiduciarioDep" />
+          <NavigationProperty Name="EncargoFiduciarioDep1" Relationship="Self.FK_EncargoFiduciarioDep_DiviPola1" FromRole="DiviPola" ToRole="EncargoFiduciarioDep" />
+        </EntityType>
+        <EntityType Name="EncargoFiduciarioDep">
+          <Key>
+            <PropertyRef Name="registro_uniqueidentifier" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" />
+          <Property Name="registro_uniqueidentifier" Type="Guid" Nullable="false" />
+          <Property Name="anio" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="rad" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="proceso" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="id_persona_victima" Type="Int64" />
+          <Property Name="Primer_nombre_victima" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="Segundo_nombre_victima" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="primer_apellido_victima" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="Segundo_apellido_victima" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="genero_victima" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="tipo_documento_victima" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="no_documento_victima" Type="Int64" />
+          <Property Name="fecha_nacimiento_victima" Type="DateTime" Precision="0" />
+          <Property Name="hecho_victimi" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="hecho_victimi_fecha" Type="DateTime" Precision="0" />
+          <Property Name="id_persona_destinatario" Type="Int64" />
+          <Property Name="Primer_nombre_destinatario" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="Segundo_nombre_destinatario" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="primer_apellido_destinatario" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="Segundo_apellido_destinatario" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="genero_destinatario" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="tipo_documento_destinatario" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="NO_DOCUMENTO_DESTINATARIO" Type="Int64" />
+          <Property Name="fecha_nacimiento_destinatario" Type="DateTime" Precision="0" />
+          <Property Name="parentesco_destinatario" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="direccion" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="Telefono_correspondencia" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="fecha_declaracion" Type="DateTime" Precision="0" />
+          <Property Name="porcentaje_recalculado" Type="Double" />
+          <Property Name="valor_total_pagar_indemnizacion" Type="Decimal" Precision="19" Scale="4" />
+          <Property Name="CONTARATO" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="no_resolucion" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="fecha_resolucion" Type="DateTime" Precision="0" />
+          <Property Name="estadoPago" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="hecho_victimi_muni_Codigo" Type="Int64" Nullable="false" />
+          <Property Name="codigo_muni_Correspondencia_destinatario" Type="Int64" Nullable="false" />
+          <NavigationProperty Name="HechoVictimiCodigo" Relationship="Self.FK_EncargoFiduciarioDep_DiviPola" FromRole="EncargoFiduciarioDep" ToRole="DiviPola" />
+          <NavigationProperty Name="MuniCorrespondenciaCodigo" Relationship="Self.FK_EncargoFiduciarioDep_DiviPola1" FromRole="EncargoFiduciarioDep" ToRole="DiviPola" />
+        </EntityType>
+        <EntityType Name="sysdiagrams">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="principal_id" Type="Int32" Nullable="false" />
+          <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="version" Type="Int32" />
+          <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+        </EntityType>
+        <EntityType Name="EncargoFiduciario">
+          <Key>
+            <PropertyRef Name="Id1" />
+          </Key>
+          <Property Name="Id1" Type="Int32" Nullable="false" />
+          <Property Name="id" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="registro_uniqueidentifier" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="anio" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="rad" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="proceso" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="id_persona" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="Primer_nombre_victima" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="Segundo_nombre_victima" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="primer_apellido_victima" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="Segundo_apellido_victima" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="genero_victima" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="tipo_documento_victima" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="no_documento_victima" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="fecha_nacimiento_victima" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="hecho_victimi" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="hecho_victimi_depto_nombre" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="hecho_victimi_muni_nombre" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="hecho_victimi_fecha" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="id_persona2" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="Primer_nombre_destinatario" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="Segundo_nombre_destinatario" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="primer_apellido_destinatario" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="Segundo_apellido_destinatario" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="genero_destinatario" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="tipo_documento_destinatario" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="NO_DOCUMENTO_DESTINATARIO" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="fecha_nacimiento_destinatario" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="parentesco_destinatario" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="nombre_departamento" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="nombre_municipio" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="direccion" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="Telefono_correspondencia" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="fecha_declaracion" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="porcentaje_recalculado" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="LIQUIDACION_DEFINITIVA" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="No_de_Resolución" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="CONTARATO" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="no_resolucion" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="fecha_resolucion" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <Association Name="FK_EncargoFiduciarioDep_DiviPola">
+          <End Role="DiviPola" Type="Self.DiviPola" Multiplicity="1" />
+          <End Role="EncargoFiduciarioDep" Type="Self.EncargoFiduciarioDep" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="DiviPola">
+              <PropertyRef Name="codigo_departamento_municipio" />
+            </Principal>
+            <Dependent Role="EncargoFiduciarioDep">
+              <PropertyRef Name="hecho_victimi_muni_Codigo" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_EncargoFiduciarioDep_DiviPola1">
+          <End Role="DiviPola" Type="Self.DiviPola" Multiplicity="1" />
+          <End Role="EncargoFiduciarioDep" Type="Self.EncargoFiduciarioDep" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="DiviPola">
+              <PropertyRef Name="codigo_departamento_municipio" />
+            </Principal>
+            <Dependent Role="EncargoFiduciarioDep">
+              <PropertyRef Name="codigo_muni_Correspondencia_destinatario" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="EncargoFiduciarioNNAEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="DiviPola" EntityType="Self.DiviPola" />
+          <EntitySet Name="EncargoFiduciarioDep" EntityType="Self.EncargoFiduciarioDep" />
+          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" />
+          <EntitySet Name="EncargoFiduciario" EntityType="Self.EncargoFiduciario" />
+          <AssociationSet Name="FK_EncargoFiduciarioDep_DiviPola" Association="Self.FK_EncargoFiduciarioDep_DiviPola">
+            <End Role="DiviPola" EntitySet="DiviPola" />
+            <End Role="EncargoFiduciarioDep" EntitySet="EncargoFiduciarioDep" />
+          </AssociationSet>
+          <AssociationSet Name="FK_EncargoFiduciarioDep_DiviPola1" Association="Self.FK_EncargoFiduciarioDep_DiviPola1">
+            <End Role="DiviPola" EntitySet="DiviPola" />
+            <End Role="EncargoFiduciarioDep" EntitySet="EncargoFiduciarioDep" />
+          </AssociationSet>
+          <EntitySet Name="vw_consultaHistoricoNNAS" EntityType="EncargoFiduciarioNNAModel.vw_consultaHistoricoNNAS" />
+        </EntityContainer>
+        <EntityType Name="vw_consultaHistoricoNNAS">
+          <Key>
+            <PropertyRef Name="IdRegistro" />
+            <PropertyRef Name="Radicado" />
+            <PropertyRef Name="NombreVictima" />
+            <PropertyRef Name="DocumentoVictima" />
+            <PropertyRef Name="HechoVictimizante" />
+            <PropertyRef Name="NombreDestinatario" />
+            <PropertyRef Name="DocumentoDestinatario" />
+            <PropertyRef Name="Proceso" />
+          </Key>
+          <Property Name="IdRegistro" Type="Int32" Nullable="false" />
+          <Property Name="Radicado" Type="String" Nullable="false" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="NombreVictima" Type="String" Nullable="false" MaxLength="1023" FixedLength="false" Unicode="true" />
+          <Property Name="DocumentoVictima" Type="String" Nullable="false" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="HechoVictimizante" Type="String" Nullable="false" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="NombreDestinatario" Type="String" Nullable="false" MaxLength="1023" FixedLength="false" Unicode="true" />
+          <Property Name="DocumentoDestinatario" Type="String" Nullable="false" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="Proceso" Type="String" Nullable="false" MaxLength="255" FixedLength="false" Unicode="true" />
+        </EntityType>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="EncargoFiduciarioNNAModelStoreContainer" CdmEntityContainer="EncargoFiduciarioNNAEntities">
+          <EntitySetMapping Name="DiviPola">
+            <EntityTypeMapping TypeName="EncargoFiduciarioNNAModel.DiviPola">
+              <MappingFragment StoreEntitySet="DiviPola">
+                <ScalarProperty Name="codigo_departamento_municipio" ColumnName="codigo_departamento_municipio" />
+                <ScalarProperty Name="codigo_departamento" ColumnName="codigo_departamento" />
+                <ScalarProperty Name="codigo_municipio" ColumnName="codigo_municipio" />
+                <ScalarProperty Name="nombre_departamento" ColumnName="nombre_departamento" />
+                <ScalarProperty Name="nombre_municipio" ColumnName="nombre_municipio" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="EncargoFiduciarioDep">
+            <EntityTypeMapping TypeName="EncargoFiduciarioNNAModel.EncargoFiduciarioDep">
+              <MappingFragment StoreEntitySet="EncargoFiduciarioDep">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="registro_uniqueidentifier" ColumnName="registro_uniqueidentifier" />
+                <ScalarProperty Name="anio" ColumnName="anio" />
+                <ScalarProperty Name="rad" ColumnName="rad" />
+                <ScalarProperty Name="proceso" ColumnName="proceso" />
+                <ScalarProperty Name="id_persona_victima" ColumnName="id_persona_victima" />
+                <ScalarProperty Name="Primer_nombre_victima" ColumnName="Primer_nombre_victima" />
+                <ScalarProperty Name="Segundo_nombre_victima" ColumnName="Segundo_nombre_victima" />
+                <ScalarProperty Name="primer_apellido_victima" ColumnName="primer_apellido_victima" />
+                <ScalarProperty Name="Segundo_apellido_victima" ColumnName="Segundo_apellido_victima" />
+                <ScalarProperty Name="genero_victima" ColumnName="genero_victima" />
+                <ScalarProperty Name="tipo_documento_victima" ColumnName="tipo_documento_victima" />
+                <ScalarProperty Name="no_documento_victima" ColumnName="no_documento_victima" />
+                <ScalarProperty Name="fecha_nacimiento_victima" ColumnName="fecha_nacimiento_victima" />
+                <ScalarProperty Name="hecho_victimi" ColumnName="hecho_victimi" />
+                <ScalarProperty Name="hecho_victimi_fecha" ColumnName="hecho_victimi_fecha" />
+                <ScalarProperty Name="id_persona_destinatario" ColumnName="id_persona_destinatario" />
+                <ScalarProperty Name="Primer_nombre_destinatario" ColumnName="Primer_nombre_destinatario" />
+                <ScalarProperty Name="Segundo_nombre_destinatario" ColumnName="Segundo_nombre_destinatario" />
+                <ScalarProperty Name="primer_apellido_destinatario" ColumnName="primer_apellido_destinatario" />
+                <ScalarProperty Name="Segundo_apellido_destinatario" ColumnName="Segundo_apellido_destinatario" />
+                <ScalarProperty Name="genero_destinatario" ColumnName="genero_destinatario" />
+                <ScalarProperty Name="tipo_documento_destinatario" ColumnName="tipo_documento_destinatario" />
+                <ScalarProperty Name="NO_DOCUMENTO_DESTINATARIO" ColumnName="NO_DOCUMENTO_DESTINATARIO" />
+                <ScalarProperty Name="fecha_nacimiento_destinatario" ColumnName="fecha_nacimiento_destinatario" />
+                <ScalarProperty Name="parentesco_destinatario" ColumnName="parentesco_destinatario" />
+                <ScalarProperty Name="direccion" ColumnName="direccion" />
+                <ScalarProperty Name="Telefono_correspondencia" ColumnName="Telefono_correspondencia" />
+                <ScalarProperty Name="fecha_declaracion" ColumnName="fecha_declaracion" />
+                <ScalarProperty Name="porcentaje_recalculado" ColumnName="porcentaje_recalculado" />
+                <ScalarProperty Name="valor_total_pagar_indemnizacion" ColumnName="valor_total_pagar_indemnizacion" />
+                <ScalarProperty Name="CONTARATO" ColumnName="CONTARATO" />
+                <ScalarProperty Name="no_resolucion" ColumnName="no_resolucion" />
+                <ScalarProperty Name="fecha_resolucion" ColumnName="fecha_resolucion" />
+                <ScalarProperty Name="estadoPago" ColumnName="estadoPago" />
+                <ScalarProperty Name="hecho_victimi_muni_Codigo" ColumnName="hecho_victimi_muni_Codigo" />
+                <ScalarProperty Name="codigo_muni_Correspondencia_destinatario" ColumnName="codigo_muni_Correspondencia_destinatario" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="sysdiagrams">
+            <EntityTypeMapping TypeName="EncargoFiduciarioNNAModel.sysdiagrams">
+              <MappingFragment StoreEntitySet="sysdiagrams">
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+                <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+                <ScalarProperty Name="version" ColumnName="version" />
+                <ScalarProperty Name="definition" ColumnName="definition" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="EncargoFiduciario">
+            <EntityTypeMapping TypeName="EncargoFiduciarioNNAModel.EncargoFiduciario">
+              <MappingFragment StoreEntitySet="EncargoFiduciario">
+                <ScalarProperty Name="Id1" ColumnName="Id1" />
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="registro_uniqueidentifier" ColumnName="registro_uniqueidentifier" />
+                <ScalarProperty Name="anio" ColumnName="anio" />
+                <ScalarProperty Name="rad" ColumnName="rad" />
+                <ScalarProperty Name="proceso" ColumnName="proceso" />
+                <ScalarProperty Name="id_persona" ColumnName="id_persona" />
+                <ScalarProperty Name="Primer_nombre_victima" ColumnName="Primer_nombre_victima" />
+                <ScalarProperty Name="Segundo_nombre_victima" ColumnName="Segundo_nombre_victima" />
+                <ScalarProperty Name="primer_apellido_victima" ColumnName="primer_apellido_victima" />
+                <ScalarProperty Name="Segundo_apellido_victima" ColumnName="Segundo_apellido_victima" />
+                <ScalarProperty Name="genero_victima" ColumnName="genero_victima" />
+                <ScalarProperty Name="tipo_documento_victima" ColumnName="tipo_documento_victima" />
+                <ScalarProperty Name="no_documento_victima" ColumnName="no_documento_victima" />
+                <ScalarProperty Name="fecha_nacimiento_victima" ColumnName="fecha_nacimiento_victima" />
+                <ScalarProperty Name="hecho_victimi" ColumnName="hecho_victimi" />
+                <ScalarProperty Name="hecho_victimi_depto_nombre" ColumnName="hecho_victimi_depto_nombre" />
+                <ScalarProperty Name="hecho_victimi_muni_nombre" ColumnName="hecho_victimi_muni_nombre" />
+                <ScalarProperty Name="hecho_victimi_fecha" ColumnName="hecho_victimi_fecha" />
+                <ScalarProperty Name="id_persona2" ColumnName="id_persona2" />
+                <ScalarProperty Name="Primer_nombre_destinatario" ColumnName="Primer_nombre_destinatario" />
+                <ScalarProperty Name="Segundo_nombre_destinatario" ColumnName="Segundo_nombre_destinatario" />
+                <ScalarProperty Name="primer_apellido_destinatario" ColumnName="primer_apellido_destinatario" />
+                <ScalarProperty Name="Segundo_apellido_destinatario" ColumnName="Segundo_apellido_destinatario" />
+                <ScalarProperty Name="genero_destinatario" ColumnName="genero_destinatario" />
+                <ScalarProperty Name="tipo_documento_destinatario" ColumnName="tipo_documento_destinatario" />
+                <ScalarProperty Name="NO_DOCUMENTO_DESTINATARIO" ColumnName="NO_DOCUMENTO_DESTINATARIO" />
+                <ScalarProperty Name="fecha_nacimiento_destinatario" ColumnName="fecha_nacimiento_destinatario" />
+                <ScalarProperty Name="parentesco_destinatario" ColumnName="parentesco_destinatario" />
+                <ScalarProperty Name="nombre_departamento" ColumnName="nombre_departamento" />
+                <ScalarProperty Name="nombre_municipio" ColumnName="nombre_municipio" />
+                <ScalarProperty Name="direccion" ColumnName="direccion" />
+                <ScalarProperty Name="Telefono_correspondencia" ColumnName="Telefono_correspondencia" />
+                <ScalarProperty Name="fecha_declaracion" ColumnName="fecha_declaracion" />
+                <ScalarProperty Name="porcentaje_recalculado" ColumnName="porcentaje_recalculado" />
+                <ScalarProperty Name="LIQUIDACION_DEFINITIVA" ColumnName="LIQUIDACION DEFINITIVA" />
+                <ScalarProperty Name="No_de_Resolución" ColumnName="No de Resolución" />
+                <ScalarProperty Name="CONTARATO" ColumnName="CONTARATO" />
+                <ScalarProperty Name="no_resolucion" ColumnName="no_resolucion" />
+                <ScalarProperty Name="fecha_resolucion" ColumnName="fecha_resolucion" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="vw_consultaHistoricoNNAS">
+            <EntityTypeMapping TypeName="EncargoFiduciarioNNAModel.vw_consultaHistoricoNNAS">
+              <MappingFragment StoreEntitySet="vw_consultaHistoricoNNAS">
+                <ScalarProperty Name="Proceso" ColumnName="Proceso" />
+                <ScalarProperty Name="DocumentoDestinatario" ColumnName="DocumentoDestinatario" />
+                <ScalarProperty Name="NombreDestinatario" ColumnName="NombreDestinatario" />
+                <ScalarProperty Name="HechoVictimizante" ColumnName="HechoVictimizante" />
+                <ScalarProperty Name="DocumentoVictima" ColumnName="DocumentoVictima" />
+                <ScalarProperty Name="NombreVictima" ColumnName="NombreVictima" />
+                <ScalarProperty Name="Radicado" ColumnName="Radicado" />
+                <ScalarProperty Name="IdRegistro" ColumnName="IdRegistro" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

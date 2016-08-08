@@ -1,0 +1,226 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="IndemnizaModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Usuario">
+          <Key>
+            <PropertyRef Name="correo_electronico" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="idRol" Type="int" Nullable="false" />
+          <Property Name="idEmpresa" Type="int" Nullable="false" />
+          <Property Name="primer_nombre" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="segundo_nombre" Type="nvarchar" MaxLength="50" />
+          <Property Name="primer_apellido" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="segundo_apellido" Type="nvarchar" MaxLength="50" />
+          <Property Name="tipo_documento" Type="varchar" MaxLength="3" />
+          <Property Name="no_documento" Type="varchar" MaxLength="20" />
+          <Property Name="correo_electronico" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="contrasena" Type="nvarchar" MaxLength="255" Nullable="false" />
+          <Property Name="estado" Type="int" />
+          <Property Name="departamento_territorial" Type="nvarchar(max)" />
+          <Property Name="auditoria_fecha_creacion" Type="datetime" />
+          <Property Name="auditoria_usuario_creacion" Type="int" />
+          <Property Name="auditoria_fecha_moficacion" Type="datetime" />
+          <Property Name="auditoria_usuario_modificacion" Type="int" />
+          <Property Name="auditoria_ultimo_ingreso_fecha" Type="datetime" />
+          <Property Name="auditoria_ultimo_ingreso_direccion_mac" Type="nvarchar" MaxLength="50" />
+          <Property Name="auditoria_ultimo_ingreso_direccion_ip" Type="nvarchar" MaxLength="100" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'Indemniza.dbo.vw_consultar_historico_nacional' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="vw_consultar_historico_nacional">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" Nullable="false" />
+          <Property Name="anio" Type="nvarchar(max)" />
+          <Property Name="rad" Type="nvarchar" MaxLength="50" />
+          <Property Name="rad_hogar" Type="int" />
+          <Property Name="proceso" Type="nvarchar(max)" />
+          <Property Name="subproceso" Type="nvarchar(max)" />
+          <Property Name="tipo_registro_pago" Type="int" />
+          <Property Name="parentesco_destinatario" Type="nvarchar(max)" />
+          <Property Name="estado_banco" Type="nvarchar(max)" />
+          <Property Name="porcentaje_recalculado" Type="float" />
+          <Property Name="nombre_1_victima" Type="nvarchar" MaxLength="200" />
+          <Property Name="nombre_2_victima" Type="nvarchar" MaxLength="200" />
+          <Property Name="apellido_1_victima" Type="nvarchar" MaxLength="200" />
+          <Property Name="apellido_2_victima" Type="nvarchar" MaxLength="200" />
+          <Property Name="no_documento_victima" Type="nvarchar" MaxLength="200" />
+          <Property Name="nombre_1_destinatario" Type="nvarchar" MaxLength="200" />
+          <Property Name="nombre_2_destinatario" Type="nvarchar" MaxLength="200" />
+          <Property Name="apellido_1_destinatario" Type="nvarchar" MaxLength="200" />
+          <Property Name="apellido_2_destinatario" Type="nvarchar" MaxLength="200" />
+          <Property Name="no_documento_destinatario" Type="nvarchar" MaxLength="200" />
+        </EntityType>
+        <EntityContainer Name="IndemnizaModelStoreContainer">
+          <EntitySet Name="Usuario" EntityType="Self.Usuario" Schema="Seguridad" store:Type="Tables" />
+          <EntitySet Name="vw_consultar_historico_nacional" EntityType="Self.vw_consultar_historico_nacional" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [vw_consultar_historico_nacional].[id] AS [id], 
+    [vw_consultar_historico_nacional].[anio] AS [anio], 
+    [vw_consultar_historico_nacional].[rad] AS [rad], 
+    [vw_consultar_historico_nacional].[rad_hogar] AS [rad_hogar], 
+    [vw_consultar_historico_nacional].[proceso] AS [proceso], 
+    [vw_consultar_historico_nacional].[subproceso] AS [subproceso], 
+    [vw_consultar_historico_nacional].[tipo_registro_pago] AS [tipo_registro_pago], 
+    [vw_consultar_historico_nacional].[parentesco_destinatario] AS [parentesco_destinatario], 
+    [vw_consultar_historico_nacional].[estado_banco] AS [estado_banco], 
+    [vw_consultar_historico_nacional].[porcentaje_recalculado] AS [porcentaje_recalculado], 
+    [vw_consultar_historico_nacional].[nombre_1_victima] AS [nombre_1_victima], 
+    [vw_consultar_historico_nacional].[nombre_2_victima] AS [nombre_2_victima], 
+    [vw_consultar_historico_nacional].[apellido_1_victima] AS [apellido_1_victima], 
+    [vw_consultar_historico_nacional].[apellido_2_victima] AS [apellido_2_victima], 
+    [vw_consultar_historico_nacional].[no_documento_victima] AS [no_documento_victima], 
+    [vw_consultar_historico_nacional].[nombre_1_destinatario] AS [nombre_1_destinatario], 
+    [vw_consultar_historico_nacional].[nombre_2_destinatario] AS [nombre_2_destinatario], 
+    [vw_consultar_historico_nacional].[apellido_1_destinatario] AS [apellido_1_destinatario], 
+    [vw_consultar_historico_nacional].[apellido_2_destinatario] AS [apellido_2_destinatario], 
+    [vw_consultar_historico_nacional].[no_documento_destinatario] AS [no_documento_destinatario]
+    FROM [dbo].[vw_consultar_historico_nacional] AS [vw_consultar_historico_nacional]</DefiningQuery>
+          </EntitySet>
+          </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="IndemnizaModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Usuario">
+          <Key>
+            <PropertyRef Name="correo_electronico" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="idRol" Type="Int32" Nullable="false" />
+          <Property Name="idEmpresa" Type="Int32" Nullable="false" />
+          <Property Name="primer_nombre" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="segundo_nombre" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="primer_apellido" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="segundo_apellido" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="tipo_documento" Type="String" MaxLength="3" FixedLength="false" Unicode="false" />
+          <Property Name="no_documento" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="correo_electronico" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="contrasena" Type="String" MaxLength="255" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="estado" Type="Int32" />
+          <Property Name="departamento_territorial" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="auditoria_fecha_creacion" Type="DateTime" Precision="3" />
+          <Property Name="auditoria_usuario_creacion" Type="Int32" />
+          <Property Name="auditoria_fecha_moficacion" Type="DateTime" Precision="3" />
+          <Property Name="auditoria_usuario_modificacion" Type="Int32" />
+          <Property Name="auditoria_ultimo_ingreso_fecha" Type="DateTime" Precision="3" />
+          <Property Name="auditoria_ultimo_ingreso_direccion_mac" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="auditoria_ultimo_ingreso_direccion_ip" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="vw_consultar_historico_nacional">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" />
+          <Property Name="anio" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="rad" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="rad_hogar" Type="Int32" />
+          <Property Name="proceso" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="subproceso" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="tipo_registro_pago" Type="Int32" />
+          <Property Name="parentesco_destinatario" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="estado_banco" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="porcentaje_recalculado" Type="Double" />
+          <Property Name="nombre_1_victima" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="nombre_2_victima" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="apellido_1_victima" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="apellido_2_victima" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="no_documento_victima" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="nombre_1_destinatario" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="nombre_2_destinatario" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="apellido_1_destinatario" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="apellido_2_destinatario" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="no_documento_destinatario" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityContainer Name="IndemnizaEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Usuario" EntityType="Self.Usuario" />
+          <EntitySet Name="vw_consultar_historico_nacional" EntityType="Self.vw_consultar_historico_nacional" />
+          </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="IndemnizaModelStoreContainer" CdmEntityContainer="IndemnizaEntities">
+          <EntitySetMapping Name="Usuario">
+            <EntityTypeMapping TypeName="IndemnizaModel.Usuario">
+              <MappingFragment StoreEntitySet="Usuario">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="idRol" ColumnName="idRol" />
+                <ScalarProperty Name="idEmpresa" ColumnName="idEmpresa" />
+                <ScalarProperty Name="primer_nombre" ColumnName="primer_nombre" />
+                <ScalarProperty Name="segundo_nombre" ColumnName="segundo_nombre" />
+                <ScalarProperty Name="primer_apellido" ColumnName="primer_apellido" />
+                <ScalarProperty Name="segundo_apellido" ColumnName="segundo_apellido" />
+                <ScalarProperty Name="tipo_documento" ColumnName="tipo_documento" />
+                <ScalarProperty Name="no_documento" ColumnName="no_documento" />
+                <ScalarProperty Name="correo_electronico" ColumnName="correo_electronico" />
+                <ScalarProperty Name="contrasena" ColumnName="contrasena" />
+                <ScalarProperty Name="estado" ColumnName="estado" />
+                <ScalarProperty Name="departamento_territorial" ColumnName="departamento_territorial" />
+                <ScalarProperty Name="auditoria_fecha_creacion" ColumnName="auditoria_fecha_creacion" />
+                <ScalarProperty Name="auditoria_usuario_creacion" ColumnName="auditoria_usuario_creacion" />
+                <ScalarProperty Name="auditoria_fecha_moficacion" ColumnName="auditoria_fecha_moficacion" />
+                <ScalarProperty Name="auditoria_usuario_modificacion" ColumnName="auditoria_usuario_modificacion" />
+                <ScalarProperty Name="auditoria_ultimo_ingreso_fecha" ColumnName="auditoria_ultimo_ingreso_fecha" />
+                <ScalarProperty Name="auditoria_ultimo_ingreso_direccion_mac" ColumnName="auditoria_ultimo_ingreso_direccion_mac" />
+                <ScalarProperty Name="auditoria_ultimo_ingreso_direccion_ip" ColumnName="auditoria_ultimo_ingreso_direccion_ip" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="vw_consultar_historico_nacional">
+            <EntityTypeMapping TypeName="IndemnizaModel.vw_consultar_historico_nacional">
+              <MappingFragment StoreEntitySet="vw_consultar_historico_nacional">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="anio" ColumnName="anio" />
+                <ScalarProperty Name="rad" ColumnName="rad" />
+                <ScalarProperty Name="rad_hogar" ColumnName="rad_hogar" />
+                <ScalarProperty Name="proceso" ColumnName="proceso" />
+                <ScalarProperty Name="subproceso" ColumnName="subproceso" />
+                <ScalarProperty Name="tipo_registro_pago" ColumnName="tipo_registro_pago" />
+                <ScalarProperty Name="parentesco_destinatario" ColumnName="parentesco_destinatario" />
+                <ScalarProperty Name="estado_banco" ColumnName="estado_banco" />
+                <ScalarProperty Name="porcentaje_recalculado" ColumnName="porcentaje_recalculado" />
+                <ScalarProperty Name="nombre_1_victima" ColumnName="nombre_1_victima" />
+                <ScalarProperty Name="nombre_2_victima" ColumnName="nombre_2_victima" />
+                <ScalarProperty Name="apellido_1_victima" ColumnName="apellido_1_victima" />
+                <ScalarProperty Name="apellido_2_victima" ColumnName="apellido_2_victima" />
+                <ScalarProperty Name="no_documento_victima" ColumnName="no_documento_victima" />
+                <ScalarProperty Name="nombre_1_destinatario" ColumnName="nombre_1_destinatario" />
+                <ScalarProperty Name="nombre_2_destinatario" ColumnName="nombre_2_destinatario" />
+                <ScalarProperty Name="apellido_1_destinatario" ColumnName="apellido_1_destinatario" />
+                <ScalarProperty Name="apellido_2_destinatario" ColumnName="apellido_2_destinatario" />
+                <ScalarProperty Name="no_documento_destinatario" ColumnName="no_documento_destinatario" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
