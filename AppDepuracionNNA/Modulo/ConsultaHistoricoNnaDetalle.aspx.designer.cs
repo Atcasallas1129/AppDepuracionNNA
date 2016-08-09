@@ -13,22 +13,22 @@ namespace AppDepuracionNNA.Modulo {
     public partial class ConsultaHistoricoNnaDetalle {
         
         /// <summary>
-        /// panelMensaje control.
+        /// panelMensajes control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Panel panelMensaje;
+        protected global::System.Web.UI.WebControls.Panel panelMensajes;
         
         /// <summary>
-        /// divEstadoOriginalCaso control.
+        /// pnEstadoOriginalCaso control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Panel divEstadoOriginalCaso;
+        protected global::System.Web.UI.WebControls.Panel pnEstadoOriginalCaso;
         
         /// <summary>
         /// buttonGuardar control.
@@ -238,13 +238,13 @@ namespace AppDepuracionNNA.Modulo {
         protected global::System.Web.UI.WebControls.TextBox txtOrdenCompra;
         
         /// <summary>
-        /// pnEstadoOriginalCaso control.
+        /// pnEstadoDepuradoCaso control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Panel pnEstadoOriginalCaso;
+        protected global::System.Web.UI.WebControls.Panel pnEstadoDepuradoCaso;
         
         /// <summary>
         /// button1 control.

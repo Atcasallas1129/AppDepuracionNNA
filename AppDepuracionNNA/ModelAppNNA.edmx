@@ -54,8 +54,8 @@
           <Property Name="Telefono_correspondencia" Type="nvarchar" MaxLength="255" />
           <Property Name="fecha_declaracion" Type="nvarchar" MaxLength="255" />
           <Property Name="porcentaje_recalculado" Type="nvarchar" MaxLength="255" />
-          <Property Name="LIQUIDACION DEFINITIVA" Type="nvarchar" MaxLength="255" />
-          <Property Name="No de Resolución" Type="nvarchar" MaxLength="255" />
+          <Property Name="LIQUIDACION_DEFINITIVA" Type="nvarchar" MaxLength="255" />
+          <Property Name="No_de_Resolucion" Type="nvarchar" MaxLength="255" />
           <Property Name="CONTARATO" Type="nvarchar" MaxLength="255" />
           <Property Name="no_resolucion" Type="nvarchar" MaxLength="255" />
           <Property Name="fecha_resolucion" Type="nvarchar" MaxLength="255" />
@@ -298,6 +298,8 @@ warning 6002: The table/view 'EncargoFiduciarioNNA.dbo.vw_consultaHistoricoNNAS'
           <Property Name="CONTARATO" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
           <Property Name="no_resolucion" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
           <Property Name="fecha_resolucion" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="LIQUIDACION_DEFINITIVA1" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="No_de_Resolucion" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
         </EntityType>
         <Association Name="FK_EncargoFiduciarioDep_DiviPola">
           <End Role="DiviPola" Type="Self.DiviPola" Multiplicity="1" />
@@ -432,6 +434,8 @@ warning 6002: The table/view 'EncargoFiduciarioNNA.dbo.vw_consultaHistoricoNNAS'
           <EntitySetMapping Name="EncargoFiduciario">
             <EntityTypeMapping TypeName="EncargoFiduciarioNNAModel.EncargoFiduciario">
               <MappingFragment StoreEntitySet="EncargoFiduciario">
+                <ScalarProperty Name="No_de_Resolucion" ColumnName="No_de_Resolucion" />
+                <ScalarProperty Name="LIQUIDACION_DEFINITIVA1" ColumnName="LIQUIDACION_DEFINITIVA" />
                 <ScalarProperty Name="Id1" ColumnName="Id1" />
                 <ScalarProperty Name="id" ColumnName="id" />
                 <ScalarProperty Name="registro_uniqueidentifier" ColumnName="registro_uniqueidentifier" />
@@ -467,8 +471,6 @@ warning 6002: The table/view 'EncargoFiduciarioNNA.dbo.vw_consultaHistoricoNNAS'
                 <ScalarProperty Name="Telefono_correspondencia" ColumnName="Telefono_correspondencia" />
                 <ScalarProperty Name="fecha_declaracion" ColumnName="fecha_declaracion" />
                 <ScalarProperty Name="porcentaje_recalculado" ColumnName="porcentaje_recalculado" />
-                <ScalarProperty Name="LIQUIDACION_DEFINITIVA" ColumnName="LIQUIDACION DEFINITIVA" />
-                <ScalarProperty Name="No_de_Resolución" ColumnName="No de Resolución" />
                 <ScalarProperty Name="CONTARATO" ColumnName="CONTARATO" />
                 <ScalarProperty Name="no_resolucion" ColumnName="no_resolucion" />
                 <ScalarProperty Name="fecha_resolucion" ColumnName="fecha_resolucion" />

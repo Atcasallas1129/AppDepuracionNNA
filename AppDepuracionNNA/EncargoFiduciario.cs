@@ -54,5 +54,7 @@ namespace AppDepuracionNNA
         public string CONTARATO { get; set; }
         public string no_resolucion { get; set; }
         public string fecha_resolucion { get; set; }
+        public string LIQUIDACION_DEFINITIVA1 { get; set; }
+        public string No_de_Resolucion { get; set; }
     }
 }
