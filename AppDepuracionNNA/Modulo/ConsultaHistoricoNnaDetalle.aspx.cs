@@ -11,6 +11,9 @@ namespace AppDepuracionNNA.Modulo
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            int? idRegistro = Convert.ToInt32(Session["idRegistroDetalle"]);
+            EncargoFiduciarioNNAEntities contexto = new EncargoFiduciarioNNAEntities();
+            EncargoFiduciario registroBase = contexto.EncargoFiduciario.SingleOrDefault(p => p.Id1 == idRegistro);
         }
 
         protected void buttonGuardar_Click(object sender, EventArgs e)
