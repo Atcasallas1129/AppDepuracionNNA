@@ -67,13 +67,13 @@ namespace AppDepuracionNNA.Modulo {
         protected global::System.Web.UI.WebControls.TextBox txtRadicado;
         
         /// <summary>
-        /// TextBox2 control.
+        /// txtMarcoNormativo control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox TextBox2;
+        protected global::System.Web.UI.WebControls.TextBox txtMarcoNormativo;
         
         /// <summary>
         /// txtPrimerNombreVictima control.
@@ -130,6 +130,15 @@ namespace AppDepuracionNNA.Modulo {
         protected global::System.Web.UI.WebControls.TextBox txtNumeroDocumentoVictima;
         
         /// <summary>
+        /// txtFechaNacimientoVictima control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtFechaNacimientoVictima;
+        
+        /// <summary>
         /// txtPrimerNombreDestinatario control.
         /// </summary>
         /// <remarks>
@@ -182,6 +191,24 @@ namespace AppDepuracionNNA.Modulo {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtNumeroDocumentoDestinatario;
+        
+        /// <summary>
+        /// txtFechaNacimientoDestinatario control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtFechaNacimientoDestinatario;
+        
+        /// <summary>
+        /// DdlParentescoDestinatario control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList DdlParentescoDestinatario;
         
         /// <summary>
         /// txtPorcentaje control.
@@ -346,6 +373,15 @@ namespace AppDepuracionNNA.Modulo {
         protected global::System.Web.UI.WebControls.TextBox txtNumeroDocumentoVictimaDep;
         
         /// <summary>
+        /// txtFechaNacimientoVictimaDep control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtFechaNacimientoVictimaDep;
+        
+        /// <summary>
         /// txtPrimerNombreDestinatarioDep control.
         /// </summary>
         /// <remarks>
@@ -398,6 +434,24 @@ namespace AppDepuracionNNA.Modulo {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtNumeroDocumentoDestinatarioDep;
+        
+        /// <summary>
+        /// txtFechaNacimientoDestinatarioDep control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtFechaNacimientoDestinatarioDep;
+        
+        /// <summary>
+        /// DdlParentescoDestinatarioDep control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList DdlParentescoDestinatarioDep;
         
         /// <summary>
         /// txtPorcentajeDep control.

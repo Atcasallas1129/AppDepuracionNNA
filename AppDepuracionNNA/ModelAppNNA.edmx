@@ -254,6 +254,65 @@ warning 6002: The table/view 'EncargoFiduciarioNNA.dbo.vw_consultaHistoricoNNAS'
           <Property Name="version" Type="Int32" />
           <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
         </EntityType>
+        <Association Name="FK_EncargoFiduciarioDep_DiviPola">
+          <End Role="DiviPola" Type="Self.DiviPola" Multiplicity="1" />
+          <End Role="EncargoFiduciarioDep" Type="Self.EncargoFiduciarioDep" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="DiviPola">
+              <PropertyRef Name="codigo_departamento_municipio" />
+            </Principal>
+            <Dependent Role="EncargoFiduciarioDep">
+              <PropertyRef Name="hecho_victimi_muni_Codigo" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_EncargoFiduciarioDep_DiviPola1">
+          <End Role="DiviPola" Type="Self.DiviPola" Multiplicity="1" />
+          <End Role="EncargoFiduciarioDep" Type="Self.EncargoFiduciarioDep" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="DiviPola">
+              <PropertyRef Name="codigo_departamento_municipio" />
+            </Principal>
+            <Dependent Role="EncargoFiduciarioDep">
+              <PropertyRef Name="codigo_muni_Correspondencia_destinatario" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="EncargoFiduciarioNNAEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="DiviPola" EntityType="Self.DiviPola" />
+          <EntitySet Name="EncargoFiduciarioDep" EntityType="Self.EncargoFiduciarioDep" />
+          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" />
+          <AssociationSet Name="FK_EncargoFiduciarioDep_DiviPola" Association="Self.FK_EncargoFiduciarioDep_DiviPola">
+            <End Role="DiviPola" EntitySet="DiviPola" />
+            <End Role="EncargoFiduciarioDep" EntitySet="EncargoFiduciarioDep" />
+          </AssociationSet>
+          <AssociationSet Name="FK_EncargoFiduciarioDep_DiviPola1" Association="Self.FK_EncargoFiduciarioDep_DiviPola1">
+            <End Role="DiviPola" EntitySet="DiviPola" />
+            <End Role="EncargoFiduciarioDep" EntitySet="EncargoFiduciarioDep" />
+          </AssociationSet>
+          <EntitySet Name="vw_consultaHistoricoNNAS" EntityType="EncargoFiduciarioNNAModel.vw_consultaHistoricoNNAS" />
+          <EntitySet Name="EncargoFiduciario" EntityType="EncargoFiduciarioNNAModel.EncargoFiduciario" />
+        </EntityContainer>
+        <EntityType Name="vw_consultaHistoricoNNAS">
+          <Key>
+            <PropertyRef Name="IdRegistro" />
+            <PropertyRef Name="Radicado" />
+            <PropertyRef Name="NombreVictima" />
+            <PropertyRef Name="DocumentoVictima" />
+            <PropertyRef Name="HechoVictimizante" />
+            <PropertyRef Name="NombreDestinatario" />
+            <PropertyRef Name="DocumentoDestinatario" />
+            <PropertyRef Name="Proceso" />
+          </Key>
+          <Property Name="IdRegistro" Type="Int32" Nullable="false" />
+          <Property Name="Radicado" Type="String" Nullable="false" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="NombreVictima" Type="String" Nullable="false" MaxLength="1023" FixedLength="false" Unicode="true" />
+          <Property Name="DocumentoVictima" Type="String" Nullable="false" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="HechoVictimizante" Type="String" Nullable="false" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="NombreDestinatario" Type="String" Nullable="false" MaxLength="1023" FixedLength="false" Unicode="true" />
+          <Property Name="DocumentoDestinatario" Type="String" Nullable="false" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="Proceso" Type="String" Nullable="false" MaxLength="255" FixedLength="false" Unicode="true" />
+        </EntityType>
         <EntityType Name="EncargoFiduciario">
           <Key>
             <PropertyRef Name="Id1" />
@@ -294,71 +353,10 @@ warning 6002: The table/view 'EncargoFiduciarioNNA.dbo.vw_consultaHistoricoNNAS'
           <Property Name="fecha_declaracion" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
           <Property Name="porcentaje_recalculado" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
           <Property Name="LIQUIDACION_DEFINITIVA" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
-          <Property Name="No_de_Resolución" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="No_de_Resolucion" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
           <Property Name="CONTARATO" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
           <Property Name="no_resolucion" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
           <Property Name="fecha_resolucion" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
-          <Property Name="LIQUIDACION_DEFINITIVA1" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
-          <Property Name="No_de_Resolucion" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
-        </EntityType>
-        <Association Name="FK_EncargoFiduciarioDep_DiviPola">
-          <End Role="DiviPola" Type="Self.DiviPola" Multiplicity="1" />
-          <End Role="EncargoFiduciarioDep" Type="Self.EncargoFiduciarioDep" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="DiviPola">
-              <PropertyRef Name="codigo_departamento_municipio" />
-            </Principal>
-            <Dependent Role="EncargoFiduciarioDep">
-              <PropertyRef Name="hecho_victimi_muni_Codigo" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_EncargoFiduciarioDep_DiviPola1">
-          <End Role="DiviPola" Type="Self.DiviPola" Multiplicity="1" />
-          <End Role="EncargoFiduciarioDep" Type="Self.EncargoFiduciarioDep" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="DiviPola">
-              <PropertyRef Name="codigo_departamento_municipio" />
-            </Principal>
-            <Dependent Role="EncargoFiduciarioDep">
-              <PropertyRef Name="codigo_muni_Correspondencia_destinatario" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <EntityContainer Name="EncargoFiduciarioNNAEntities" annotation:LazyLoadingEnabled="true">
-          <EntitySet Name="DiviPola" EntityType="Self.DiviPola" />
-          <EntitySet Name="EncargoFiduciarioDep" EntityType="Self.EncargoFiduciarioDep" />
-          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" />
-          <EntitySet Name="EncargoFiduciario" EntityType="Self.EncargoFiduciario" />
-          <AssociationSet Name="FK_EncargoFiduciarioDep_DiviPola" Association="Self.FK_EncargoFiduciarioDep_DiviPola">
-            <End Role="DiviPola" EntitySet="DiviPola" />
-            <End Role="EncargoFiduciarioDep" EntitySet="EncargoFiduciarioDep" />
-          </AssociationSet>
-          <AssociationSet Name="FK_EncargoFiduciarioDep_DiviPola1" Association="Self.FK_EncargoFiduciarioDep_DiviPola1">
-            <End Role="DiviPola" EntitySet="DiviPola" />
-            <End Role="EncargoFiduciarioDep" EntitySet="EncargoFiduciarioDep" />
-          </AssociationSet>
-          <EntitySet Name="vw_consultaHistoricoNNAS" EntityType="EncargoFiduciarioNNAModel.vw_consultaHistoricoNNAS" />
-        </EntityContainer>
-        <EntityType Name="vw_consultaHistoricoNNAS">
-          <Key>
-            <PropertyRef Name="IdRegistro" />
-            <PropertyRef Name="Radicado" />
-            <PropertyRef Name="NombreVictima" />
-            <PropertyRef Name="DocumentoVictima" />
-            <PropertyRef Name="HechoVictimizante" />
-            <PropertyRef Name="NombreDestinatario" />
-            <PropertyRef Name="DocumentoDestinatario" />
-            <PropertyRef Name="Proceso" />
-          </Key>
-          <Property Name="IdRegistro" Type="Int32" Nullable="false" />
-          <Property Name="Radicado" Type="String" Nullable="false" MaxLength="255" FixedLength="false" Unicode="true" />
-          <Property Name="NombreVictima" Type="String" Nullable="false" MaxLength="1023" FixedLength="false" Unicode="true" />
-          <Property Name="DocumentoVictima" Type="String" Nullable="false" MaxLength="255" FixedLength="false" Unicode="true" />
-          <Property Name="HechoVictimizante" Type="String" Nullable="false" MaxLength="255" FixedLength="false" Unicode="true" />
-          <Property Name="NombreDestinatario" Type="String" Nullable="false" MaxLength="1023" FixedLength="false" Unicode="true" />
-          <Property Name="DocumentoDestinatario" Type="String" Nullable="false" MaxLength="255" FixedLength="false" Unicode="true" />
-          <Property Name="Proceso" Type="String" Nullable="false" MaxLength="255" FixedLength="false" Unicode="true" />
         </EntityType>
       </Schema>
     </edmx:ConceptualModels>
@@ -431,52 +429,6 @@ warning 6002: The table/view 'EncargoFiduciarioNNA.dbo.vw_consultaHistoricoNNAS'
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="EncargoFiduciario">
-            <EntityTypeMapping TypeName="EncargoFiduciarioNNAModel.EncargoFiduciario">
-              <MappingFragment StoreEntitySet="EncargoFiduciario">
-                <ScalarProperty Name="No_de_Resolucion" ColumnName="No_de_Resolucion" />
-                <ScalarProperty Name="LIQUIDACION_DEFINITIVA1" ColumnName="LIQUIDACION_DEFINITIVA" />
-                <ScalarProperty Name="Id1" ColumnName="Id1" />
-                <ScalarProperty Name="id" ColumnName="id" />
-                <ScalarProperty Name="registro_uniqueidentifier" ColumnName="registro_uniqueidentifier" />
-                <ScalarProperty Name="anio" ColumnName="anio" />
-                <ScalarProperty Name="rad" ColumnName="rad" />
-                <ScalarProperty Name="proceso" ColumnName="proceso" />
-                <ScalarProperty Name="id_persona" ColumnName="id_persona" />
-                <ScalarProperty Name="Primer_nombre_victima" ColumnName="Primer_nombre_victima" />
-                <ScalarProperty Name="Segundo_nombre_victima" ColumnName="Segundo_nombre_victima" />
-                <ScalarProperty Name="primer_apellido_victima" ColumnName="primer_apellido_victima" />
-                <ScalarProperty Name="Segundo_apellido_victima" ColumnName="Segundo_apellido_victima" />
-                <ScalarProperty Name="genero_victima" ColumnName="genero_victima" />
-                <ScalarProperty Name="tipo_documento_victima" ColumnName="tipo_documento_victima" />
-                <ScalarProperty Name="no_documento_victima" ColumnName="no_documento_victima" />
-                <ScalarProperty Name="fecha_nacimiento_victima" ColumnName="fecha_nacimiento_victima" />
-                <ScalarProperty Name="hecho_victimi" ColumnName="hecho_victimi" />
-                <ScalarProperty Name="hecho_victimi_depto_nombre" ColumnName="hecho_victimi_depto_nombre" />
-                <ScalarProperty Name="hecho_victimi_muni_nombre" ColumnName="hecho_victimi_muni_nombre" />
-                <ScalarProperty Name="hecho_victimi_fecha" ColumnName="hecho_victimi_fecha" />
-                <ScalarProperty Name="id_persona2" ColumnName="id_persona2" />
-                <ScalarProperty Name="Primer_nombre_destinatario" ColumnName="Primer_nombre_destinatario" />
-                <ScalarProperty Name="Segundo_nombre_destinatario" ColumnName="Segundo_nombre_destinatario" />
-                <ScalarProperty Name="primer_apellido_destinatario" ColumnName="primer_apellido_destinatario" />
-                <ScalarProperty Name="Segundo_apellido_destinatario" ColumnName="Segundo_apellido_destinatario" />
-                <ScalarProperty Name="genero_destinatario" ColumnName="genero_destinatario" />
-                <ScalarProperty Name="tipo_documento_destinatario" ColumnName="tipo_documento_destinatario" />
-                <ScalarProperty Name="NO_DOCUMENTO_DESTINATARIO" ColumnName="NO_DOCUMENTO_DESTINATARIO" />
-                <ScalarProperty Name="fecha_nacimiento_destinatario" ColumnName="fecha_nacimiento_destinatario" />
-                <ScalarProperty Name="parentesco_destinatario" ColumnName="parentesco_destinatario" />
-                <ScalarProperty Name="nombre_departamento" ColumnName="nombre_departamento" />
-                <ScalarProperty Name="nombre_municipio" ColumnName="nombre_municipio" />
-                <ScalarProperty Name="direccion" ColumnName="direccion" />
-                <ScalarProperty Name="Telefono_correspondencia" ColumnName="Telefono_correspondencia" />
-                <ScalarProperty Name="fecha_declaracion" ColumnName="fecha_declaracion" />
-                <ScalarProperty Name="porcentaje_recalculado" ColumnName="porcentaje_recalculado" />
-                <ScalarProperty Name="CONTARATO" ColumnName="CONTARATO" />
-                <ScalarProperty Name="no_resolucion" ColumnName="no_resolucion" />
-                <ScalarProperty Name="fecha_resolucion" ColumnName="fecha_resolucion" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
           <EntitySetMapping Name="vw_consultaHistoricoNNAS">
             <EntityTypeMapping TypeName="EncargoFiduciarioNNAModel.vw_consultaHistoricoNNAS">
               <MappingFragment StoreEntitySet="vw_consultaHistoricoNNAS">
@@ -488,6 +440,52 @@ warning 6002: The table/view 'EncargoFiduciarioNNA.dbo.vw_consultaHistoricoNNAS'
                 <ScalarProperty Name="NombreVictima" ColumnName="NombreVictima" />
                 <ScalarProperty Name="Radicado" ColumnName="Radicado" />
                 <ScalarProperty Name="IdRegistro" ColumnName="IdRegistro" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="EncargoFiduciario">
+            <EntityTypeMapping TypeName="EncargoFiduciarioNNAModel.EncargoFiduciario">
+              <MappingFragment StoreEntitySet="EncargoFiduciario">
+                <ScalarProperty Name="fecha_resolucion" ColumnName="fecha_resolucion" />
+                <ScalarProperty Name="no_resolucion" ColumnName="no_resolucion" />
+                <ScalarProperty Name="CONTARATO" ColumnName="CONTARATO" />
+                <ScalarProperty Name="No_de_Resolucion" ColumnName="No_de_Resolucion" />
+                <ScalarProperty Name="LIQUIDACION_DEFINITIVA" ColumnName="LIQUIDACION_DEFINITIVA" />
+                <ScalarProperty Name="porcentaje_recalculado" ColumnName="porcentaje_recalculado" />
+                <ScalarProperty Name="fecha_declaracion" ColumnName="fecha_declaracion" />
+                <ScalarProperty Name="Telefono_correspondencia" ColumnName="Telefono_correspondencia" />
+                <ScalarProperty Name="direccion" ColumnName="direccion" />
+                <ScalarProperty Name="nombre_municipio" ColumnName="nombre_municipio" />
+                <ScalarProperty Name="nombre_departamento" ColumnName="nombre_departamento" />
+                <ScalarProperty Name="parentesco_destinatario" ColumnName="parentesco_destinatario" />
+                <ScalarProperty Name="fecha_nacimiento_destinatario" ColumnName="fecha_nacimiento_destinatario" />
+                <ScalarProperty Name="NO_DOCUMENTO_DESTINATARIO" ColumnName="NO_DOCUMENTO_DESTINATARIO" />
+                <ScalarProperty Name="tipo_documento_destinatario" ColumnName="tipo_documento_destinatario" />
+                <ScalarProperty Name="genero_destinatario" ColumnName="genero_destinatario" />
+                <ScalarProperty Name="Segundo_apellido_destinatario" ColumnName="Segundo_apellido_destinatario" />
+                <ScalarProperty Name="primer_apellido_destinatario" ColumnName="primer_apellido_destinatario" />
+                <ScalarProperty Name="Segundo_nombre_destinatario" ColumnName="Segundo_nombre_destinatario" />
+                <ScalarProperty Name="Primer_nombre_destinatario" ColumnName="Primer_nombre_destinatario" />
+                <ScalarProperty Name="id_persona2" ColumnName="id_persona2" />
+                <ScalarProperty Name="hecho_victimi_fecha" ColumnName="hecho_victimi_fecha" />
+                <ScalarProperty Name="hecho_victimi_muni_nombre" ColumnName="hecho_victimi_muni_nombre" />
+                <ScalarProperty Name="hecho_victimi_depto_nombre" ColumnName="hecho_victimi_depto_nombre" />
+                <ScalarProperty Name="hecho_victimi" ColumnName="hecho_victimi" />
+                <ScalarProperty Name="fecha_nacimiento_victima" ColumnName="fecha_nacimiento_victima" />
+                <ScalarProperty Name="no_documento_victima" ColumnName="no_documento_victima" />
+                <ScalarProperty Name="tipo_documento_victima" ColumnName="tipo_documento_victima" />
+                <ScalarProperty Name="genero_victima" ColumnName="genero_victima" />
+                <ScalarProperty Name="Segundo_apellido_victima" ColumnName="Segundo_apellido_victima" />
+                <ScalarProperty Name="primer_apellido_victima" ColumnName="primer_apellido_victima" />
+                <ScalarProperty Name="Segundo_nombre_victima" ColumnName="Segundo_nombre_victima" />
+                <ScalarProperty Name="Primer_nombre_victima" ColumnName="Primer_nombre_victima" />
+                <ScalarProperty Name="id_persona" ColumnName="id_persona" />
+                <ScalarProperty Name="proceso" ColumnName="proceso" />
+                <ScalarProperty Name="rad" ColumnName="rad" />
+                <ScalarProperty Name="anio" ColumnName="anio" />
+                <ScalarProperty Name="registro_uniqueidentifier" ColumnName="registro_uniqueidentifier" />
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="Id1" ColumnName="Id1" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

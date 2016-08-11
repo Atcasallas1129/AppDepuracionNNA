@@ -28,7 +28,7 @@ namespace AppDepuracionNNA
         public virtual DbSet<DiviPola> DiviPola { get; set; }
         public virtual DbSet<EncargoFiduciarioDep> EncargoFiduciarioDep { get; set; }
         public virtual DbSet<sysdiagrams> sysdiagrams { get; set; }
-        public virtual DbSet<EncargoFiduciario> EncargoFiduciario { get; set; }
         public virtual DbSet<vw_consultaHistoricoNNAS> vw_consultaHistoricoNNAS { get; set; }
+        public virtual DbSet<EncargoFiduciario> EncargoFiduciario { get; set; }
     }
 }
