@@ -58,6 +58,15 @@ namespace AppDepuracionNNA.Modulo {
         protected global::System.Web.UI.WebControls.TextBox txtAnio;
         
         /// <summary>
+        /// RequiredFieldValidator1 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidator1;
+        
+        /// <summary>
         /// txtRadicado control.
         /// </summary>
         /// <remarks>
@@ -65,6 +74,15 @@ namespace AppDepuracionNNA.Modulo {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtRadicado;
+        
+        /// <summary>
+        /// RequiredFieldValidator2 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidator2;
         
         /// <summary>
         /// txtMarcoNormativo control.
@@ -76,6 +94,15 @@ namespace AppDepuracionNNA.Modulo {
         protected global::System.Web.UI.WebControls.TextBox txtMarcoNormativo;
         
         /// <summary>
+        /// RequiredFieldValidator3 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidator3;
+        
+        /// <summary>
         /// txtPrimerNombreVictima control.
         /// </summary>
         /// <remarks>
@@ -83,6 +110,15 @@ namespace AppDepuracionNNA.Modulo {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtPrimerNombreVictima;
+        
+        /// <summary>
+        /// RequiredFieldValidator4 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidator4;
         
         /// <summary>
         /// txtSegundoNombreVictima control.
@@ -103,6 +139,15 @@ namespace AppDepuracionNNA.Modulo {
         protected global::System.Web.UI.WebControls.TextBox txtPrimerApellidoVictima;
         
         /// <summary>
+        /// RequiredFieldValidator5 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidator5;
+        
+        /// <summary>
         /// txtSegundoApellidoVictima control.
         /// </summary>
         /// <remarks>
@@ -121,6 +166,15 @@ namespace AppDepuracionNNA.Modulo {
         protected global::System.Web.UI.WebControls.TextBox txtTipoDocumentoVictima;
         
         /// <summary>
+        /// RequiredFieldValidator7 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidator7;
+        
+        /// <summary>
         /// txtNumeroDocumentoVictima control.
         /// </summary>
         /// <remarks>
@@ -128,6 +182,15 @@ namespace AppDepuracionNNA.Modulo {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtNumeroDocumentoVictima;
+        
+        /// <summary>
+        /// RequiredFieldValidator8 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidator8;
         
         /// <summary>
         /// txtFechaNacimientoVictima control.
@@ -148,6 +211,15 @@ namespace AppDepuracionNNA.Modulo {
         protected global::System.Web.UI.WebControls.TextBox txtPrimerNombreDestinatario;
         
         /// <summary>
+        /// RequiredFieldValidator9 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidator9;
+        
+        /// <summary>
         /// txtSegundoNombreDestinatario control.
         /// </summary>
         /// <remarks>
@@ -164,6 +236,15 @@ namespace AppDepuracionNNA.Modulo {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtPrimerApellidoDestinatario;
+        
+        /// <summary>
+        /// RequiredFieldValidator10 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidator10;
         
         /// <summary>
         /// txtSegundoApellidoDestinatario control.
@@ -184,6 +265,15 @@ namespace AppDepuracionNNA.Modulo {
         protected global::System.Web.UI.WebControls.TextBox txtTipoDocumentoDestinatario;
         
         /// <summary>
+        /// RequiredFieldValidator11 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidator11;
+        
+        /// <summary>
         /// txtNumeroDocumentoDestinatario control.
         /// </summary>
         /// <remarks>
@@ -193,6 +283,15 @@ namespace AppDepuracionNNA.Modulo {
         protected global::System.Web.UI.WebControls.TextBox txtNumeroDocumentoDestinatario;
         
         /// <summary>
+        /// RequiredFieldValidator12 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidator12;
+        
+        /// <summary>
         /// txtFechaNacimientoDestinatario control.
         /// </summary>
         /// <remarks>
@@ -200,6 +299,15 @@ namespace AppDepuracionNNA.Modulo {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtFechaNacimientoDestinatario;
+        
+        /// <summary>
+        /// RequiredFieldValidator13 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidator13;
         
         /// <summary>
         /// DdlParentescoDestinatario control.
@@ -220,6 +328,15 @@ namespace AppDepuracionNNA.Modulo {
         protected global::System.Web.UI.WebControls.TextBox txtPorcentaje;
         
         /// <summary>
+        /// RequiredFieldValidator14 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidator14;
+        
+        /// <summary>
         /// txtValorIndemnizacion control.
         /// </summary>
         /// <remarks>
@@ -227,6 +344,15 @@ namespace AppDepuracionNNA.Modulo {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtValorIndemnizacion;
+        
+        /// <summary>
+        /// RequiredFieldValidator15 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidator15;
         
         /// <summary>
         /// txtNumeroResolucion control.
@@ -238,6 +364,15 @@ namespace AppDepuracionNNA.Modulo {
         protected global::System.Web.UI.WebControls.TextBox txtNumeroResolucion;
         
         /// <summary>
+        /// RequiredFieldValidator16 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidator16;
+        
+        /// <summary>
         /// txtFechaResolucion control.
         /// </summary>
         /// <remarks>
@@ -245,6 +380,15 @@ namespace AppDepuracionNNA.Modulo {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtFechaResolucion;
+        
+        /// <summary>
+        /// RequiredFieldValidator17 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidator17;
         
         /// <summary>
         /// txtEstadoBancario control.
@@ -506,5 +650,14 @@ namespace AppDepuracionNNA.Modulo {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtOrdenCompraDep;
+        
+        /// <summary>
+        /// ValidationSummary1 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.ValidationSummary ValidationSummary1;
     }
 }

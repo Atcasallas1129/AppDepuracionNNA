@@ -102,6 +102,22 @@
           <Property Name="hecho_victimi_muni_Codigo" Type="bigint" Nullable="false" />
           <Property Name="codigo_muni_Correspondencia_destinatario" Type="bigint" Nullable="false" />
         </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'EncargoFiduciarioNNA.dbo.Parentesco' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="Parentesco">
+          <Key>
+            <PropertyRef Name="id" />
+            <PropertyRef Name="sigla" />
+            <PropertyRef Name="nombre" />
+          </Key>
+          <Property Name="id" Type="int" Nullable="false" />
+          <Property Name="sigla" Type="nvarchar" MaxLength="5" Nullable="false" />
+          <Property Name="nombre" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="auditoria_usuario_creacion" Type="int" />
+          <Property Name="auditoria_fecha_creacion" Type="datetime" />
+          <Property Name="auditoria_usuario_modificacion" Type="int" />
+          <Property Name="auditoria_fecha_modificacion" Type="datetime" />
+        </EntityType>
         <EntityType Name="sysdiagrams">
           <Key>
             <PropertyRef Name="diagram_id" />
@@ -163,6 +179,17 @@ warning 6002: The table/view 'EncargoFiduciarioNNA.dbo.vw_consultaHistoricoNNAS'
           <EntitySet Name="EncargoFiduciario" EntityType="Self.EncargoFiduciario" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="EncargoFiduciarioDep" EntityType="Self.EncargoFiduciarioDep" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Parentesco" EntityType="Self.Parentesco" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [Parentesco].[id] AS [id], 
+    [Parentesco].[sigla] AS [sigla], 
+    [Parentesco].[nombre] AS [nombre], 
+    [Parentesco].[auditoria_usuario_creacion] AS [auditoria_usuario_creacion], 
+    [Parentesco].[auditoria_fecha_creacion] AS [auditoria_fecha_creacion], 
+    [Parentesco].[auditoria_usuario_modificacion] AS [auditoria_usuario_modificacion], 
+    [Parentesco].[auditoria_fecha_modificacion] AS [auditoria_fecha_modificacion]
+    FROM [dbo].[Parentesco] AS [Parentesco]</DefiningQuery>
+          </EntitySet>
           <EntitySet Name="vw_consultaHistoricoNNAS" EntityType="Self.vw_consultaHistoricoNNAS" store:Type="Views" store:Schema="dbo">
             <DefiningQuery>SELECT 
     [vw_consultaHistoricoNNAS].[IdRegistro] AS [IdRegistro], 
@@ -292,6 +319,7 @@ warning 6002: The table/view 'EncargoFiduciarioNNA.dbo.vw_consultaHistoricoNNAS'
           </AssociationSet>
           <EntitySet Name="vw_consultaHistoricoNNAS" EntityType="EncargoFiduciarioNNAModel.vw_consultaHistoricoNNAS" />
           <EntitySet Name="EncargoFiduciario" EntityType="EncargoFiduciarioNNAModel.EncargoFiduciario" />
+          <EntitySet Name="Parentesco" EntityType="EncargoFiduciarioNNAModel.Parentesco" />
         </EntityContainer>
         <EntityType Name="vw_consultaHistoricoNNAS">
           <Key>
@@ -357,6 +385,20 @@ warning 6002: The table/view 'EncargoFiduciarioNNA.dbo.vw_consultaHistoricoNNAS'
           <Property Name="CONTARATO" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
           <Property Name="no_resolucion" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
           <Property Name="fecha_resolucion" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="Parentesco">
+          <Key>
+            <PropertyRef Name="id" />
+            <PropertyRef Name="sigla" />
+            <PropertyRef Name="nombre" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" />
+          <Property Name="sigla" Type="String" Nullable="false" MaxLength="5" FixedLength="false" Unicode="true" />
+          <Property Name="nombre" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="auditoria_usuario_creacion" Type="Int32" />
+          <Property Name="auditoria_fecha_creacion" Type="DateTime" Precision="3" />
+          <Property Name="auditoria_usuario_modificacion" Type="Int32" />
+          <Property Name="auditoria_fecha_modificacion" Type="DateTime" Precision="3" />
         </EntityType>
       </Schema>
     </edmx:ConceptualModels>
@@ -486,6 +528,19 @@ warning 6002: The table/view 'EncargoFiduciarioNNA.dbo.vw_consultaHistoricoNNAS'
                 <ScalarProperty Name="registro_uniqueidentifier" ColumnName="registro_uniqueidentifier" />
                 <ScalarProperty Name="id" ColumnName="id" />
                 <ScalarProperty Name="Id1" ColumnName="Id1" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Parentesco">
+            <EntityTypeMapping TypeName="EncargoFiduciarioNNAModel.Parentesco">
+              <MappingFragment StoreEntitySet="Parentesco">
+                <ScalarProperty Name="auditoria_fecha_modificacion" ColumnName="auditoria_fecha_modificacion" />
+                <ScalarProperty Name="auditoria_usuario_modificacion" ColumnName="auditoria_usuario_modificacion" />
+                <ScalarProperty Name="auditoria_fecha_creacion" ColumnName="auditoria_fecha_creacion" />
+                <ScalarProperty Name="auditoria_usuario_creacion" ColumnName="auditoria_usuario_creacion" />
+                <ScalarProperty Name="nombre" ColumnName="nombre" />
+                <ScalarProperty Name="sigla" ColumnName="sigla" />
+                <ScalarProperty Name="id" ColumnName="id" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

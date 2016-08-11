@@ -127,5 +127,28 @@ namespace AppDepuracionNNA.Modulo
         {
             pnEstadoOriginalCaso.Enabled = false;
         }
+
+        protected void DdlParentescoDestinatario_Init(object sender, EventArgs e)
+        {
+            try
+            {
+                EncargoFiduciarioNNAEntities contexto = new EncargoFiduciarioNNAEntities();
+                var parentesco = from p in contexto.Parentesco
+                                 select new
+                                 {
+                                     id = p.id,
+                                     nombre = p.nombre                                     
+                                 };
+                DdlParentescoDestinatario.DataSource = parentesco.ToArray();
+                DdlParentescoDestinatario.DataBind();
+
+                ListItem item = new ListItem("-- Seleccione una opcion --", "-1");
+                DdlParentescoDestinatario.Items.Insert(0, item);
+            }
+            catch
+            {
+
+            }
+        }
     }
 }

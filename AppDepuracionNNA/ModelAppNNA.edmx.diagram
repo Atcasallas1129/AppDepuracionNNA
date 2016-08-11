@@ -12,6 +12,7 @@
         <AssociationConnector Association="EncargoFiduciarioNNAModel.FK_EncargoFiduciarioDep_DiviPola1" ManuallyRouted="false" />
         <EntityTypeShape EntityType="EncargoFiduciarioNNAModel.vw_consultaHistoricoNNAS" Width="1.5" PointX="9" PointY="1.125" />
         <EntityTypeShape EntityType="EncargoFiduciarioNNAModel.EncargoFiduciario" Width="2.875" PointX="5.5" PointY="1.25" />
+        <EntityTypeShape EntityType="EncargoFiduciarioNNAModel.Parentesco" Width="1.5" PointX="9.375" PointY="4.75" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>
