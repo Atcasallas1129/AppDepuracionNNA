@@ -103,6 +103,22 @@
           <Property Name="codigo_muni_Correspondencia_destinatario" Type="bigint" Nullable="false" />
         </EntityType>
         <!--Errors Found During Generation:
+warning 6002: The table/view 'EncargoFiduciarioNNA.dbo.HechoVictimizante' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="HechoVictimizante">
+          <Key>
+            <PropertyRef Name="id_hecho_victimizante" />
+            <PropertyRef Name="sigla" />
+            <PropertyRef Name="nombre" />
+          </Key>
+          <Property Name="id_hecho_victimizante" Type="int" Nullable="false" />
+          <Property Name="sigla" Type="nvarchar" MaxLength="5" Nullable="false" />
+          <Property Name="nombre" Type="nvarchar" MaxLength="250" Nullable="false" />
+          <Property Name="auditoria_usuario_creacion" Type="int" />
+          <Property Name="auditoria_fecha_creacion" Type="datetime" />
+          <Property Name="auditoria_usuario_modificacion" Type="int" />
+          <Property Name="auditoria_fecha_modificacion" Type="datetime" />
+        </EntityType>
+        <!--Errors Found During Generation:
 warning 6002: The table/view 'EncargoFiduciarioNNA.dbo.Parentesco' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
         <EntityType Name="Parentesco">
           <Key>
@@ -179,6 +195,17 @@ warning 6002: The table/view 'EncargoFiduciarioNNA.dbo.vw_consultaHistoricoNNAS'
           <EntitySet Name="EncargoFiduciario" EntityType="Self.EncargoFiduciario" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="EncargoFiduciarioDep" EntityType="Self.EncargoFiduciarioDep" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="HechoVictimizante" EntityType="Self.HechoVictimizante" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [HechoVictimizante].[id_hecho_victimizante] AS [id_hecho_victimizante], 
+    [HechoVictimizante].[sigla] AS [sigla], 
+    [HechoVictimizante].[nombre] AS [nombre], 
+    [HechoVictimizante].[auditoria_usuario_creacion] AS [auditoria_usuario_creacion], 
+    [HechoVictimizante].[auditoria_fecha_creacion] AS [auditoria_fecha_creacion], 
+    [HechoVictimizante].[auditoria_usuario_modificacion] AS [auditoria_usuario_modificacion], 
+    [HechoVictimizante].[auditoria_fecha_modificacion] AS [auditoria_fecha_modificacion]
+    FROM [dbo].[HechoVictimizante] AS [HechoVictimizante]</DefiningQuery>
+          </EntitySet>
           <EntitySet Name="Parentesco" EntityType="Self.Parentesco" store:Type="Tables" store:Schema="dbo">
             <DefiningQuery>SELECT 
     [Parentesco].[id] AS [id], 
@@ -320,6 +347,7 @@ warning 6002: The table/view 'EncargoFiduciarioNNA.dbo.vw_consultaHistoricoNNAS'
           <EntitySet Name="vw_consultaHistoricoNNAS" EntityType="EncargoFiduciarioNNAModel.vw_consultaHistoricoNNAS" />
           <EntitySet Name="EncargoFiduciario" EntityType="EncargoFiduciarioNNAModel.EncargoFiduciario" />
           <EntitySet Name="Parentesco" EntityType="EncargoFiduciarioNNAModel.Parentesco" />
+          <EntitySet Name="HechoVictimizante" EntityType="EncargoFiduciarioNNAModel.HechoVictimizante" />
         </EntityContainer>
         <EntityType Name="vw_consultaHistoricoNNAS">
           <Key>
@@ -395,6 +423,20 @@ warning 6002: The table/view 'EncargoFiduciarioNNA.dbo.vw_consultaHistoricoNNAS'
           <Property Name="id" Type="Int32" Nullable="false" />
           <Property Name="sigla" Type="String" Nullable="false" MaxLength="5" FixedLength="false" Unicode="true" />
           <Property Name="nombre" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="auditoria_usuario_creacion" Type="Int32" />
+          <Property Name="auditoria_fecha_creacion" Type="DateTime" Precision="3" />
+          <Property Name="auditoria_usuario_modificacion" Type="Int32" />
+          <Property Name="auditoria_fecha_modificacion" Type="DateTime" Precision="3" />
+        </EntityType>
+        <EntityType Name="HechoVictimizante">
+          <Key>
+            <PropertyRef Name="id_hecho_victimizante" />
+            <PropertyRef Name="sigla" />
+            <PropertyRef Name="nombre" />
+          </Key>
+          <Property Name="id_hecho_victimizante" Type="Int32" Nullable="false" />
+          <Property Name="sigla" Type="String" Nullable="false" MaxLength="5" FixedLength="false" Unicode="true" />
+          <Property Name="nombre" Type="String" Nullable="false" MaxLength="250" FixedLength="false" Unicode="true" />
           <Property Name="auditoria_usuario_creacion" Type="Int32" />
           <Property Name="auditoria_fecha_creacion" Type="DateTime" Precision="3" />
           <Property Name="auditoria_usuario_modificacion" Type="Int32" />
@@ -541,6 +583,19 @@ warning 6002: The table/view 'EncargoFiduciarioNNA.dbo.vw_consultaHistoricoNNAS'
                 <ScalarProperty Name="nombre" ColumnName="nombre" />
                 <ScalarProperty Name="sigla" ColumnName="sigla" />
                 <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="HechoVictimizante">
+            <EntityTypeMapping TypeName="EncargoFiduciarioNNAModel.HechoVictimizante">
+              <MappingFragment StoreEntitySet="HechoVictimizante">
+                <ScalarProperty Name="auditoria_fecha_modificacion" ColumnName="auditoria_fecha_modificacion" />
+                <ScalarProperty Name="auditoria_usuario_modificacion" ColumnName="auditoria_usuario_modificacion" />
+                <ScalarProperty Name="auditoria_fecha_creacion" ColumnName="auditoria_fecha_creacion" />
+                <ScalarProperty Name="auditoria_usuario_creacion" ColumnName="auditoria_usuario_creacion" />
+                <ScalarProperty Name="nombre" ColumnName="nombre" />
+                <ScalarProperty Name="sigla" ColumnName="sigla" />
+                <ScalarProperty Name="id_hecho_victimizante" ColumnName="id_hecho_victimizante" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

@@ -341,6 +341,9 @@
     <Compile Include="EncargoFiduciarioDep.cs">
       <DependentUpon>ModelAppNNA.tt</DependentUpon>
     </Compile>
+    <Compile Include="HechoVictimizante.cs">
+      <DependentUpon>ModelAppNNA.tt</DependentUpon>
+    </Compile>
     <Compile Include="ModelIndemniza.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>

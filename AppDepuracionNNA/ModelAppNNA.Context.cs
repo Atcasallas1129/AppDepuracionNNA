@@ -31,5 +31,6 @@ namespace AppDepuracionNNA
         public virtual DbSet<vw_consultaHistoricoNNAS> vw_consultaHistoricoNNAS { get; set; }
         public virtual DbSet<EncargoFiduciario> EncargoFiduciario { get; set; }
         public virtual DbSet<Parentesco> Parentesco { get; set; }
+        public virtual DbSet<HechoVictimizante> HechoVictimizante { get; set; }
     }
 }

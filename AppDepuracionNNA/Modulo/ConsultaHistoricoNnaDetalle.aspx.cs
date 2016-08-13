@@ -6,6 +6,8 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using System.IO;
+using System.Drawing;
+using System.Text.RegularExpressions;
 
 namespace AppDepuracionNNA.Modulo
 {
@@ -38,6 +40,7 @@ namespace AppDepuracionNNA.Modulo
                             txtRadicado.Text = registroOriginal.rad.ToString();
                             txtMarcoNormativo.Text = registroOriginal.proceso.ToString();
                             //Informacion sobre la victima original
+                            lblIdPersonaVictima.Text = registroOriginal.id_persona.ToString();
                             txtPrimerNombreVictima.Text = registroOriginal.Primer_nombre_victima.ToString();
                             txtSegundoNombreVictima.Text = registroOriginal.Segundo_nombre_victima.ToString();
                             txtPrimerApellidoVictima.Text = registroOriginal.primer_apellido_victima.ToString();
@@ -48,6 +51,7 @@ namespace AppDepuracionNNA.Modulo
                             if (DateTime.TryParse(registroOriginal.fecha_nacimiento_victima.ToString(), out fechaNacimientoVictima)) ;
                             { txtFechaNacimientoVictima.Text = fechaNacimientoVictima.ToString("yyyy-MM-dd"); }
                             ///Informacion sobre el destinatario original
+                            lblIdPersonaDestinatario.Text = registroOriginal.id_persona2.ToString();
                             txtPrimerNombreDestinatario.Text = registroOriginal.Primer_nombre_destinatario.ToString();
                             txtSegundoNombreDestinatario.Text = registroOriginal.Segundo_nombre_destinatario.ToString();
                             txtPrimerApellidoDestinatario.Text = registroOriginal.primer_apellido_destinatario.ToString();
@@ -59,6 +63,21 @@ namespace AppDepuracionNNA.Modulo
                             { txtFechaNacimientoDestinatario.Text = fechaNacimientoDestinatario.ToString("yyyy-MM-dd"); }
                             ///colocar la info del parentesco
                             //Informacion Financiera
+                            try {
+                                if(ddlHechoVictimizante.Items.FindByText(registroOriginal.hecho_victimi.ToString())== null)
+                                {
+                                    ddlHechoVictimizante.SelectedItem.Text = ddlHechoVictimizante.Items.FindByText(registroOriginal.hecho_victimi).ToString();
+                                }
+                                else
+                                {
+
+                                }
+                            }
+                            catch
+                            {
+
+                            }
+                            DdlParentescoDestinatario.SelectedItem.Text = DdlParentescoDestinatario.Items.FindByText(registroOriginal.parentesco_destinatario).ToString();
                             txtPorcentaje.Text = registroOriginal.porcentaje_recalculado.ToString();
                             txtValorIndemnizacion.Text = registroOriginal.LIQUIDACION_DEFINITIVA.ToString();
                             txtNumeroResolucion.Text = registroOriginal.no_resolucion.ToString();
@@ -112,7 +131,7 @@ namespace AppDepuracionNNA.Modulo
                     {
                         panelMensajes.CssClass = "alert alert-danger";
                         Label textoError = new Label();
-                        textoError.Text = ex.ToString();///"Error: No es posible establecer conexion con el sistema, por favor intente mas tarde.";
+                        textoError.Text = "Error: No es posible establecer conexion con el sistema, por favor intente mas tarde.";
                         panelMensajes.Controls.Add(textoError);
                     }
                 }
@@ -125,7 +144,43 @@ namespace AppDepuracionNNA.Modulo
 
         protected void buttonGuardar_Click(object sender, EventArgs e)
         {
-            pnEstadoOriginalCaso.Enabled = false;
+            if(Convert.ToInt32(DdlParentescoDestinatario.SelectedValue) != 0)
+            {
+                try
+                {
+                    EncargoFiduciarioNNAEntities contexto = new EncargoFiduciarioNNAEntities();
+                    EncargoFiduciarioDep registro = new EncargoFiduciarioDep();
+                    registro.id = Convert.ToInt32(Session["idRegistroDetalle"].ToString());
+                    registro.registro_uniqueidentifier = Guid.Parse(transformacioncampo(txtCodigoUnique.Text));
+                    registro.anio = transformacioncampo(txtAnio.Text);
+                    registro.rad = transformacioncampo(txtRadicado.Text);
+                    registro.proceso = transformacioncampo(txtMarcoNormativo.Text);
+                    registro.id_persona_victima = string.IsNullOrEmpty(lblIdPersonaVictima.Text) ? Convert.ToInt64(null) : Convert.ToUInt32(lblIdPersonaVictima.Text.ToString());
+                    registro.Primer_nombre_victima = transformacioncampo(txtPrimerNombreVictima.Text.ToString());
+                    registro.Segundo_nombre_victima = transformacioncampo(txtSegundoNombreVictima.Text.ToString());
+                    registro.primer_apellido_victima = transformacioncampo(txtPrimerApellidoVictima.Text.ToString());
+                    registro.Segundo_apellido_victima = transformacioncampo(txtPrimerApellidoVictima.Text.ToString());
+                    registro.genero_victima = transformacioncampo(ddlGeneroVictima.SelectedValue.ToString());
+                    registro.tipo_documento_victima = transformacioncampo(txtTipoDocumentoVictima.ToString());
+                    registro.no_documento_victima = Convert.ToInt64(transformacioncampo(txtTipoDocumentoVictima.ToString()));
+                    registro.fecha_nacimiento_victima = Convert.ToDateTime(txtFechaNacimientoVictima.Text.ToString());
+                }
+                catch (SystemException ex)
+                {
+                    panelMensajes.CssClass = "alert alert-danger";
+                    Label textoError = new Label();
+                    textoError.Text = "Error: error al procesar la solicitud: Detalle del error: "+ex.ToString();
+                    panelMensajes.Controls.Add(textoError);
+                }
+            }
+            else
+            {
+                panelMensajes.CssClass = "alert alert-warning";
+                Label textoError = new Label();
+                textoError.Text = "Error: Debe diligenciar el parentesco del destinatario con la víctima.";
+                panelMensajes.Controls.Add(textoError);
+                DdlParentescoDestinatario.Attributes.Add("style", "background-color:#FF0000");
+            }
         }
 
         protected void DdlParentescoDestinatario_Init(object sender, EventArgs e)
@@ -144,6 +199,34 @@ namespace AppDepuracionNNA.Modulo
 
                 ListItem item = new ListItem("-- Seleccione una opcion --", "-1");
                 DdlParentescoDestinatario.Items.Insert(0, item);
+            }
+            catch
+            {
+
+            }
+        }
+
+        protected string transformacioncampo (string dato)
+        {
+            string datoTransformado = Regex.Replace(dato, "[^a-zA-Z0-9_.- ]+", "", RegexOptions.Compiled);
+            return datoTransformado;
+        }
+
+        protected void ddlHechoVictimizante_Init(object sender, EventArgs e)
+        {
+            try
+            {
+                EncargoFiduciarioNNAEntities contexto = new EncargoFiduciarioNNAEntities();
+                var hechoVictimi = from p in contexto.HechoVictimizante
+                                   select new
+                                   {
+                                       id = p.id_hecho_victimizante,
+                                       hecho = p.nombre
+                                   };
+                ddlHechoVictimizante.DataSource = hechoVictimi.ToArray();
+                ddlHechoVictimizante.DataBind();
+                ListItem item = new ListItem("-- Seleccione una opcion --", "-1");
+                ddlHechoVictimizante.Items.Insert(0, item);
             }
             catch
             {
